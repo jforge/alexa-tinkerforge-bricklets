@@ -80,7 +80,7 @@ public class MqttPublisher {
 	}
 
 	public MqttClient connectBroker() throws MqttException {
-		MqttClient client = new MqttClient(brokerUri, clientId + "_publisher");
+		MqttClient client = new MqttClient(brokerUri, clientId + "_publisher", null);
 		MqttConnectOptions options = new MqttConnectOptions();
 		options.setKeepAliveInterval(0);
 		options.setConnectionTimeout(1);

@@ -1,5 +1,6 @@
 package io.eol.echo.skill.tinkerforge;
 
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.SortedMap;
@@ -14,11 +15,15 @@ import com.amazon.speech.ui.PlainTextOutputSpeech;
 import com.amazon.speech.ui.Reprompt;
 import com.amazon.speech.ui.SimpleCard;
 import io.eol.echo.skill.tinkerforge.mqtt.MqttPublisher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The {@link TinkerforgeBrickletsManager} receives various events and intents and manages the interaction flow.
  */
 public class TinkerforgeBrickletsManager {
+	private static final Logger log = LoggerFactory.getLogger(MqttPublisher.class);
+
 	private static final String SLOT_DEVICE_NAME = "DeviceName";
 
 	private static final String SLOT_NUMBER = "Number";
@@ -61,7 +66,7 @@ public class TinkerforgeBrickletsManager {
 		String newDeviceName =
 				TinkerforgeBrickletsTextUtil.getDeviceName(intent.getSlot(SLOT_DEVICE_NAME).getValue());
 		if (newDeviceName == null) {
-			String speechText = "OK. What do you want to so?";
+			String speechText = "OK. What do you want to do?";
 			return getAskSpeechletResponse(speechText, speechText);
 		}
 
@@ -70,7 +75,7 @@ public class TinkerforgeBrickletsManager {
 
 		if (skillContext.needsMoreHelp()) {
 			speechText += "You can say, move motor, count to a number, display a text?";
-			speechText += "What is your next action?";
+			speechText += " What is your next action?";
 			repromptText = TinkerforgeBrickletsTextUtil.NEXT_HELP;
 		}
 
@@ -86,8 +91,9 @@ public class TinkerforgeBrickletsManager {
 		String deviceName =
 				TinkerforgeBrickletsTextUtil.getDeviceName(intent.getSlot(SLOT_DEVICE_NAME).getValue());
 		if (deviceName == null) {
-			String speechText = "Sorry, I did not hear the device name. Please say again?";
-			return getAskSpeechletResponse(speechText, speechText);
+//			String speechText = "Sorry, I did not hear the device name. Please say again?";
+//			return getAskSpeechletResponse(speechText, speechText);
+			deviceName = "segment";
 		}
 
 		int number = 0;
@@ -106,25 +112,38 @@ public class TinkerforgeBrickletsManager {
 		return getTellSpeechletResponse(speechText);
 	}
 
-	private void publishMessage(String device, int number) {
+	private void publishMessage(String deviceName, int number) {
+		log.info("Publish device={}, number={}", deviceName, number);
 
 		// TODO use lambda env variable to configure broker and topics
+		// TODO refactoring for DeviceTypes + SlotsTypes
 		MqttPublisher publisher = new MqttPublisher();
 
-		if (device.contains("motor") || device.contains("stepper")) {
+		if (deviceName.contains("motor") || deviceName.contains("stepper")) {
 			String topic = "echo/move";
 			int payload = number;
+			log.info("topic={}, payload={}", topic, payload);
+			publisher.publish(topic, String.valueOf(payload));
+		} else if (deviceName.contains("segment")) {
+			String topic = "echo/count";
+			int payload = number;
+			log.info("topic={}, payload={}", topic, payload);
 			publisher.publish(topic, String.valueOf(payload));
 		} else {
-			String topic = "echo/move";
-			int payload = number;
-			publisher.publish(topic, String.valueOf(payload));
+			String topic = "echo/display";
+			String payload = "Echo recognized: " + number;
+			log.info("topic={}, payload={}", topic, payload);
+			publisher.publish(topic, payload);
 		}
 	}
 
-	public SpeechletResponse getTellWeightIntentResponse(Intent intent, Session session) {
+	public SpeechletResponse getTellWeightIntentResponse(Intent intent, Session session, Locale locale) {
 		SortedMap<String, Long> sortedWeights = new TreeMap<>();
+
 		String speechText = "overweight";
+		if (locale.getCountry().toLowerCase().contains("de")) {
+			speechText = "übergewichtig";
+		}
 		Card weightCard = getWeightCard(sortedWeights);
 
 		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();

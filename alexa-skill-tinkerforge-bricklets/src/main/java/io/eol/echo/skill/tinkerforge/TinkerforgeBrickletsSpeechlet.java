@@ -103,7 +103,7 @@ public class TinkerforgeBrickletsSpeechlet implements Speechlet {
 			return tinkerforgeBrickletsManager.getDeviceControlIntentResponse(intent, session, skillContext);
 
 		} else if ("TellWeightIntent".equals(intent.getName())) {
-			return tinkerforgeBrickletsManager.getTellWeightIntentResponse(intent, session);
+			return tinkerforgeBrickletsManager.getTellWeightIntentResponse(intent, session, request.getLocale());
 
 		} else if ("ResetDevicesIntent".equals(intent.getName())) {
 			return tinkerforgeBrickletsManager.getResetDevicesIntentResponse(intent, session);

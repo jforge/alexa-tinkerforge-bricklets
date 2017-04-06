@@ -15,12 +15,11 @@ public final class TinkerforgeBrickletsSpeechletRequestStreamHandler extends Spe
 
 	static {
 		/*
-         * This Id can be found on https://developer.amazon.com/edw/home.html#/ "Edit" the relevant
-         * Alexa Skill and put the relevant Application Ids in this Set.
+         * This Id can be found on https://developer.amazon.com/edw/home.html#/
+         * "Edit" the relevant Alexa Skill and put the relevant Application Ids in this Set.
          */
 		supportedApplicationIds = new HashSet<String>();
 		supportedApplicationIds.add("amzn1.ask.skill.0cddb736-135b-4c74-abf7-76fa3455e57e");
-		// supportedApplicationIds.add("amzn1.echo-sdk-ams.app.[unique-value-here]");
 	}
 
 	public TinkerforgeBrickletsSpeechletRequestStreamHandler() {

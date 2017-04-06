@@ -1,13 +1,14 @@
 package io.eol.echo.skill.tinkerforge.mqtt;
 
-import org.apache.log4j.Logger;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MqttPublisher {
-	private static Logger log = Logger.getLogger(MqttPublisher.class);
+	private static final Logger log = LoggerFactory.getLogger(MqttPublisher.class);
 
 	// TODO externalize in lambda settings.
 
@@ -20,30 +21,20 @@ public class MqttPublisher {
 	private String brokerPassword = "0xp4yr";
 
 	public void publish(String topic, String payload) {
+		log.info("publish on topic=%s, payload=%s", topic, payload);
+		int qosLevel = 0;
 		try {
 			MqttClient client = connectBroker();
-			publishMqttMessage(client, topic, payload.getBytes(), false);
+			client.publish(topic, payload.getBytes(), qosLevel, false);
 			client.disconnect();
 			client.close();
 		} catch (MqttException e) {
-			log.error("", e);
-		}
-	}
-
-	public static void publishMqttMessage(IMqttClient client, String topic, byte[] payload, boolean retained) {
-		int qosLevel = 0;
-		if (client != null) {
-			try {
-				// self.client.publish(GLOBAL_TOPIC_PREFIX + topic, json.dumps(payload, separators=(',',':')), *args, **kwargs)
-				client.publish(topic, payload, qosLevel, retained);
-			} catch (MqttException e) {
-				e.printStackTrace(); // TODO aws compatible logging
-			}
+			log.error("Error publishing mqtt message", e);
 		}
 	}
 
 	public MqttClient connectBroker() throws MqttException {
-		MqttClient client = new MqttClient(brokerUri, clientId + "_publisher");
+		MqttClient client = new MqttClient(brokerUri, clientId + "_publisher", null);
 		MqttConnectOptions options = new MqttConnectOptions();
 		options.setKeepAliveInterval(0);
 		options.setConnectionTimeout(1);

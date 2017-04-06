@@ -29,36 +29,38 @@ NewControlIntent begin device control
 NewControlIntent start control
 NewControlIntent start a control
 NewControlIntent start a device control
-NewControlIntent start device control
+NewControlIntent starte geräte kontrolle
 
-AddDeviceIntent add device {DeviceName}
-AddDeviceIntent add {DeviceName}
-AddDeviceIntent add {DeviceName} to the actuators
-AddDeviceIntent add device {DeviceName} to actuators
-AddDeviceIntent add {DeviceName} to actuators
+AddDeviceIntent ergänze gerät {DeviceName}
+AddDeviceIntent ergänze {DeviceName}
+AddDeviceIntent ergänze {DeviceName} zu den aktoren
+AddDeviceIntent ergänze device {DeviceName} zu den aktoren
+AddDeviceIntent ergänze {DeviceName} zu den aktoren
 AddDeviceIntent {DeviceName}
-AddDeviceIntent add actuator {DeviceName}
+AddDeviceIntent ergänze {DeviceName} zu aktoren
+AddDeviceIntent ergänze device {DeviceName} zu aktoren
+AddDeviceIntent ergänze {DeviceName} aktoren
+AddDeviceIntent ergänze aktor {DeviceName}
 
-DeviceControlIntent move {DeviceName} {Number} steps
-DeviceControlIntent move {DeviceName} by {Number} steps
-DeviceControlIntent move {DeviceName} by {Number}
-DeviceControlIntent move {DeviceName} {Number}
-DeviceControlIntent move to {Number}
-DeviceControlIntent move by {Number}
-DeviceControlIntent move by {Number} steps
-DeviceControlIntent count {DeviceName} {Number}
-DeviceControlIntent count {DeviceName} to {Number}
-DeviceControlIntent count on {DeviceName} to {Number}
-DeviceControlIntent count to {Number}
-DeviceControlIntent show {DeviceName} {Number}
-DeviceControlIntent show on {DeviceName} {Number}
-DeviceControlIntent show on {DeviceName} the number {Number}
+DeviceControlIntent bewege {DeviceName} {Number} schritte
+DeviceControlIntent bewege {DeviceName} für {Number} schritte
+DeviceControlIntent bewege {DeviceName} um {Number}
+DeviceControlIntent bewege {DeviceName} {Number}
+DeviceControlIntent bewege um {Number}
+DeviceControlIntent bewege um {Number} schritte
+DeviceControlIntent zähle {DeviceName} {Number}
+DeviceControlIntent zähle {DeviceName} bis {Number}
+DeviceControlIntent zähle auf {DeviceName} bis {Number}
+DeviceControlIntent zähle bis {Number}
+DeviceControlIntent zeige {DeviceName} {Number}
+DeviceControlIntent zeige auf {DeviceName} {Number}
+DeviceControlIntent zeige auf {DeviceName} die Zahl {Number}
 
-TellWeightIntent current weight
-TellWeightIntent weight
-TellWeightIntent the current weight
-TellWeightIntent give me the weight
-TellWeightIntent give me the current weight
+TellWeightIntent derzeitiges gewicht
+TellWeightIntent gewicht
+TellWeightIntent das derzeitige gewicht
+TellWeightIntent gib mir das gewicht
+TellWeightIntent gib mir das derzeitige gewicht
 TellWeightIntent tell me current weight
 TellWeightIntent tell me the current weight
 TellWeightIntent tell me the weight

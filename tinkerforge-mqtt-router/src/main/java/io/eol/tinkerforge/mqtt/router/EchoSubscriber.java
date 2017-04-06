@@ -50,7 +50,7 @@ public class EchoSubscriber implements MqttCallback {
 	public void connect() {
 		MqttClient client = null;
 		try {
-			client = new MqttClient(brokerUri, clientId);
+			client = new MqttClient(brokerUri, clientId, null);
 			MqttConnectOptions options = new MqttConnectOptions();
 			options.setCleanSession(true);
 			options.setUserName(brokerUsername);

@@ -1,0 +1,44 @@
+{
+  "intents": [
+    {
+      "intent": "AddDeviceIntent",
+      "slots": [
+        {
+          "name": "DeviceName",
+          "type": "LIST_OF_DEVICES"
+        }
+      ]
+    },
+    {
+      "intent": "DeviceControlIntent",
+      "slots": [
+        {
+          "name": "DeviceName",
+          "type": "LIST_OF_DEVICES"
+        },
+        {
+          "name": "Number",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "NewControlIntent"
+    },
+    {
+      "intent": "TellWeightIntent"
+    },
+    {
+      "intent": "ResetDevicesIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

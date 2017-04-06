@@ -1,0 +1,150 @@
+NewControlIntent begin control
+NewControlIntent begin a control
+NewControlIntent begin a device control
+NewControlIntent begin device control
+NewControlIntent create control
+NewControlIntent create a control
+NewControlIntent create a device control
+NewControlIntent create device control
+NewControlIntent do control
+NewControlIntent do a control
+NewControlIntent do a device control
+NewControlIntent do device control
+NewControlIntent make control
+NewControlIntent make a control
+NewControlIntent make a device control
+NewControlIntent make device control
+NewControlIntent open control
+NewControlIntent open a control
+NewControlIntent open a device control
+NewControlIntent open device control
+NewControlIntent set up control
+NewControlIntent set up a control
+NewControlIntent set up a device control
+NewControlIntent set up device control
+NewControlIntent begin control
+NewControlIntent begin a control
+NewControlIntent begin a device control
+NewControlIntent begin device control
+NewControlIntent start control
+NewControlIntent start a control
+NewControlIntent start a device control
+NewControlIntent start device control
+
+AddDeviceIntent add device {DeviceName}
+AddDeviceIntent add {DeviceName}
+AddDeviceIntent add {DeviceName} to the actuators
+AddDeviceIntent add device {DeviceName} to actuators
+AddDeviceIntent add {DeviceName} to actuators
+AddDeviceIntent {DeviceName}
+
+DeviceControlIntent move {DeviceName} {Number} steps
+DeviceControlIntent move {DeviceName} {Number}
+DeviceControlIntent count {DeviceName} {Number}
+DeviceControlIntent count to {Number}
+DeviceControlIntent move to {Number}
+DeviceControlIntent display {Number}
+
+TellWeightIntent current weight
+TellWeightIntent weight
+TellWeightIntent the current weight
+TellWeightIntent give me the weight
+TellWeightIntent give me the current weight
+TellWeightIntent give us who is in the lead
+TellWeightIntent tell me current weight
+TellWeightIntent tell me the current weight
+TellWeightIntent tell me the weight
+TellWeightIntent tell us current weight
+TellWeightIntent tell us the current weight
+TellWeightIntent tell us the weight
+TellWeightIntent what is the weight
+TellWeightIntent what's the weight
+TellWeightIntent what is the current weight
+TellWeightIntent what's the current weight
+
+ResetDevicesIntent clear
+ResetDevicesIntent clear devices
+ResetDevicesIntent clear controls
+ResetDevicesIntent clear numbers
+ResetDevicesIntent clear last devices
+ResetDevicesIntent clear last controls
+ResetDevicesIntent clear last numbers
+ResetDevicesIntent clear devices
+ResetDevicesIntent clear controls
+ResetDevicesIntent clear numbers
+ResetDevicesIntent clear that devices
+ResetDevicesIntent clear that controls
+ResetDevicesIntent clear that numbers
+ResetDevicesIntent clear the devices
+ResetDevicesIntent clear the controls
+ResetDevicesIntent clear the numbers
+ResetDevicesIntent clear those devices
+ResetDevicesIntent clear those controls
+ResetDevicesIntent clear those numbers
+ResetDevicesIntent delete
+ResetDevicesIntent delete devices
+ResetDevicesIntent delete controls
+ResetDevicesIntent delete numbers
+ResetDevicesIntent delete last devices
+ResetDevicesIntent delete last controls
+ResetDevicesIntent delete last numbers
+ResetDevicesIntent delete devices
+ResetDevicesIntent delete controls
+ResetDevicesIntent delete numbers
+ResetDevicesIntent delete that devices
+ResetDevicesIntent delete that controls
+ResetDevicesIntent delete that numbers
+ResetDevicesIntent delete the devices
+ResetDevicesIntent delete the controls
+ResetDevicesIntent delete the numbers
+ResetDevicesIntent delete those devices
+ResetDevicesIntent delete those controls
+ResetDevicesIntent delete those numbers
+ResetDevicesIntent erase
+ResetDevicesIntent erase devices
+ResetDevicesIntent erase controls
+ResetDevicesIntent erase numbers
+ResetDevicesIntent erase last devices
+ResetDevicesIntent erase last controls
+ResetDevicesIntent erase last numbers
+ResetDevicesIntent erase devices
+ResetDevicesIntent erase controls
+ResetDevicesIntent erase numbers
+ResetDevicesIntent erase that devices
+ResetDevicesIntent erase that controls
+ResetDevicesIntent erase that numbers
+ResetDevicesIntent erase the devices
+ResetDevicesIntent erase the controls
+ResetDevicesIntent erase the numbers
+ResetDevicesIntent erase those devices
+ResetDevicesIntent erase those controls
+ResetDevicesIntent erase those numbers
+ResetDevicesIntent forget the devices
+ResetDevicesIntent forget the controls
+ResetDevicesIntent forget the numbers
+ResetDevicesIntent forget those devices
+ResetDevicesIntent forget those controls
+ResetDevicesIntent forget those numbers
+ResetDevicesIntent remove last devices
+ResetDevicesIntent remove last control
+ResetDevicesIntent remove last numbers
+ResetDevicesIntent remove my devices
+ResetDevicesIntent remove my control
+ResetDevicesIntent remove my numbers
+ResetDevicesIntent remove
+ResetDevicesIntent remove devices
+ResetDevicesIntent remove the devices
+ResetDevicesIntent remove old devices
+ResetDevicesIntent remove control
+ResetDevicesIntent remove the control
+ResetDevicesIntent remove old control
+ResetDevicesIntent remove numbers
+ResetDevicesIntent remove the numbers
+ResetDevicesIntent remove old numbers
+ResetDevicesIntent reset
+ResetDevicesIntent reset devices
+ResetDevicesIntent reset the devices
+ResetDevicesIntent reset control
+ResetDevicesIntent reset the control
+ResetDevicesIntent reset numbers
+ResetDevicesIntent reset the numbers
